@@ -99,9 +99,14 @@ Detta gör att VM-disken kan återställas om något skulle gå fel eller data f
 
    Terraform kommer då skapa VM-instansen i ditt GCP-projekt.
 
+
+
+
+   ![Pipeline](screenshotPipeline.png)
+
 ---
 
-
+![vm](ScreenshotVM.png)
 
 
 ## Säkerhetsbeslut:
@@ -134,3 +139,5 @@ Automatiska uppdateringar säkerställer att:
 Säkerhetspatchar installeras regelbundet
 
 Kända sårbarheter åtgärdas utan manuell hantering
+
+
