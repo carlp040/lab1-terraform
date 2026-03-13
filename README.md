@@ -102,7 +102,7 @@ Detta gör att VM-disken kan återställas om något skulle gå fel eller data f
 
 
 
-   ![Pipeline](asd123.png)
+   ![Pipeline](screenshotPipeline.png)
 
 ---
 
