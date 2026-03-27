@@ -1,7 +1,7 @@
 name: Terraform Destroy
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manuell trigger via GitHub UI
 
 env:
   TF_VAR_project_id: "chas-devsecops-2026"
@@ -14,11 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
+
+      # Authenticate to GCP first
       - name: Authenticate to GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
-      - name: Terraform Init
-        run: terraform init
+
+      # Init Terraform with backend (GCS)
+      - name: Terraform Init (with backend)
+        run: terraform init -reconfigure
+
+      # Destroy all resources
       - name: Terraform Destroy
         run: terraform destroy -auto-approve

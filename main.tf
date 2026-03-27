@@ -4,11 +4,7 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.0"
     }
-  }
 
-  backend "gcs" {
-    bucket = "chas-tf-state-m4k-gang"
-    prefix = "lab1/carl-persson"
   }
 }
 
