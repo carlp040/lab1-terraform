@@ -140,4 +140,22 @@ Säkerhetspatchar installeras regelbundet
 
 Kända sårbarheter åtgärdas utan manuell hantering
 
+--
+
+
+## Disaster Recovery
+
+Recovery Point Objective (RPO):
+Med dagliga snapshots kan vi maximalt förlora 24 timmar av data. Snapshots tas automatiskt varje natt, vilket säkerställer att senaste data alltid kan återställas.
+
+Recovery Time Objective (RTO):
+Med Terraform kan vi återskapa hela miljön på bara några minuter. En fullständig terraform apply skapar VM:er, diskar och nätverk från scratch.
+
+Scenario:
+Om VM:en skulle gå ner helt kör vi terraform apply för att återskapa infrastrukturen. Om vi behöver återställa data från gårdagen använder vi den senaste snapshoten via GCP Console eller med kommandot:
+
+gcloud compute disks create DISK_NAME --source-snapshot SNAPSHOT_NAME --zone ZONE
+
+Detta säkerställer både snabb återställning av infrastrukturen och minimal dataförlust.
+
 
